@@ -1,5 +1,5 @@
 import streamlit as st
-
+from PIL import Image
 def run():
     st.title("Westwing SCM App: For all the cool automation stuff")
     image = Image.open('./images/westwing_logo.jpeg')
