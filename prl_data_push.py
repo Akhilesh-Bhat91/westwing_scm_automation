@@ -26,6 +26,8 @@ def po_placement(allPOData_df):
     chromeOptions = Options()
     chromeOptions.add_argument("--disable-gpu")
     chromeOptions.add_argument("--headless")
+    chromeOptions.addArguments("--window-size=1920,1080");
+    chromeOptions.addArguments("--start-maximized");
     driver = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=chromeOptions)
 
     # firefoxOptions = Options()
@@ -37,7 +39,7 @@ def po_placement(allPOData_df):
 
     # Open the Website and maximize window
     driver.get("https://mono.westwing.eu/")#put here the adress of your page
-    driver.maximize_window()
+    # driver.maximize_window()
     # driver.quit()
     
     wait = WebDriverWait(driver, 10)
