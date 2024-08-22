@@ -4,6 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.core.os_manager import ChromeType
 import pandas as pd
 import time
 import os
@@ -17,8 +19,9 @@ def po_placement(allPOData_df):
     username = 'a.bhat-x'
     password = 'QYE2gxd-kju0kz!'
     # Select webdriver (chrome, edge, etc.)
-    driver = webdriver.Chrome()
-
+    # driver = webdriver.Chrome()
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))
+    
     # Open the Website and maximize window
     driver.get("https://mono.westwing.eu/")#put here the adress of your page
     driver.maximize_window()
