@@ -26,8 +26,8 @@ def po_placement(allPOData_df):
     chromeOptions = Options()
     chromeOptions.add_argument("--disable-gpu")
     chromeOptions.add_argument("--headless")
-    chromeOptions.addArguments("--window-size=1920,1080");
-    chromeOptions.addArguments("--start-maximized");
+    chromeOptions.add_argument("--window-size=1920,1080")
+    chromeOptions.add_argument("--start-maximized")
     driver = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=chromeOptions)
 
     # firefoxOptions = Options()
