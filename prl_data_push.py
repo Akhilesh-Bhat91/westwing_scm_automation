@@ -38,7 +38,7 @@ def po_placement(allPOData_df):
     # Open the Website and maximize window
     driver.get("https://mono.westwing.eu/")#put here the adress of your page
     driver.maximize_window()
-    driver.quit()
+    # driver.quit()
     
     wait = WebDriverWait(driver, 10)
     actionChains = ActionChains(driver)
@@ -152,8 +152,8 @@ def po_placement(allPOData_df):
         time.sleep(3)
         wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="po-detail-btn-save"]'))).click()    #click save    
         wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="po-detail-btn-approved"]'))).click() #click approve
-        print(wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="po-detail-info-bar-number"]'))).text)
-        input()
+        st.write(wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="po-detail-info-bar-number"]'))).text)
+        
         if cur_window != original_window:
             driver.close()
             driver.switch_to.window(original_window)
