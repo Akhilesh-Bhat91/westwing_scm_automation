@@ -6,12 +6,15 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.core.os_manager import ChromeType
 import pandas as pd
 import time
 import os
 import streamlit as st
+from webdriver_manager.firefox import GeckoDriverManager
+
+# from webdriver_manager.chrome import ChromeDriverManager
+# from webdriver_manager.core.os_manager import ChromeType
+
 # Username and password stored in separate file
 #username = login_details.username
 #password = login_details.password
@@ -21,10 +24,15 @@ def po_placement(allPOData_df):
     username = 'a.bhat-x'
     password = 'QYE2gxd-kju0kz!'
     # Select webdriver (chrome, edge, etc.)
-    options = Options()
+    # options = Options()
     # options.add_argument("--disable-gpu")
     # options.add_argument("--headless")
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=options)
+    # driver = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=options)
+
+    firefoxOptions = Options()
+    # firefoxOptions.add_argument("--headless")
+    service = Service(GeckoDriverManager().install())
+    driver = webdriver.Firefox(options=firefoxOptions,service=service)
     
     # Open the Website and maximize window
     driver.get("https://mono.westwing.eu/")#put here the adress of your page
