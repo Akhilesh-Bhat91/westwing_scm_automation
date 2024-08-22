@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 # from PIL import Image
 st.set_page_config(page_title='The cool Westwing SCM automation app', page_icon='./images/westwing_logo.jpeg')
 def run():
@@ -18,7 +19,8 @@ def run():
         prl_input_file = st.file_uploader("Choose the PRL Input file", type=['xlsx'])
         # dataframe = pd.read_csv(uploaded_file)
         # st.write(dataframe)
-        dataframe = pd.read_excel(uploaded_file)
-        st.write(dataframe)
+        if prl_input_file is not None:
+            dataframe = pd.read_excel(prl_input_file)
+            st.write(dataframe)
 run()
 
