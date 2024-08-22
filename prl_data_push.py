@@ -7,12 +7,13 @@ from selenium.webdriver.common.keys import Keys
 import pandas as pd
 import time
 import os
+import streamlit as st
 # Username and password stored in separate file
 #username = login_details.username
 #password = login_details.password
 
 
-def po_placement():
+def po_placement(allPOData_df):
     username = 'a.bhat-x'
     password = 'QYE2gxd-kju0kz!'
     # Select webdriver (chrome, edge, etc.)
@@ -48,7 +49,7 @@ def po_placement():
         wait.until(EC.element_to_be_clickable((By.XPATH,"//button[@class='btn-large btn-block btn-onelogin']"))).click()
 
 
-    allPOData_df = pd.read_excel("WWC_Input_Sample.xlsx")
+    # allPOData_df = pd.read_excel("WWC_Input_Sample.xlsx")
     poList = allPOData_df['PO Number'].unique()
     pack_dict = {'Neutral':'1','Westwing Collection':'2','Branded':'3','Mixed':'4'}
     potype_dict = {'DDP':'2','FOB':'3','FOB External':'4'}
