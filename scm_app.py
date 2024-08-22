@@ -19,9 +19,10 @@ def run():
         prl_input_file = st.file_uploader("Choose the PRL Input file", type=['xlsx'])
         
         if prl_input_file is not None:
-            # dataframe = pd.read_excel(prl_input_file)
-            # st.write(dataframe)
-            dataframe = pd.read_csv(prl_input_file)
+            dataframe = pd.read_excel(prl_input_file)
+            st.write("filename:", prl_input_file.name)
             st.write(dataframe)
+            # dataframe = pd.read_csv(prl_input_file)
+            # st.write(dataframe)
 run()
 
