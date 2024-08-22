@@ -11,9 +11,8 @@ import time
 import os
 import streamlit as st
 from webdriver_manager.firefox import GeckoDriverManager
-
-# from webdriver_manager.chrome import ChromeDriverManager
-# from webdriver_manager.core.os_manager import ChromeType
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.core.os_manager import ChromeType
 
 # Username and password stored in separate file
 #username = login_details.username
@@ -24,20 +23,23 @@ def po_placement(allPOData_df):
     username = 'a.bhat-x'
     password = 'QYE2gxd-kju0kz!'
     # Select webdriver (chrome, edge, etc.)
-    # options = Options()
-    # options.add_argument("--disable-gpu")
-    # options.add_argument("--headless")
-    # driver = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=options)
+    chromeOptions = Options()
+    chromeOptions.add_argument("--disable-gpu")
+    chromeOptions.add_argument("--headless")
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=chromeOptions)
 
-    firefoxOptions = Options()
-    firefoxOptions.add_argument("--headless")
-    service = Service(GeckoDriverManager().install())
-    driver = webdriver.Firefox(options=firefoxOptions,service=service)
-    
+    # firefoxOptions = Options()
+    # firefoxOptions.add_argument("--headless")
+    # service = Service(GeckoDriverManager().install())
+    # driver = webdriver.Firefox(options=firefoxOptions,service=service)
+
+    st.write(f"DEBUG:DRIVER:{driver}")
+
     # Open the Website and maximize window
     driver.get("https://mono.westwing.eu/")#put here the adress of your page
     driver.maximize_window()
-
+    driver.quit()
+    
     wait = WebDriverWait(driver, 10)
     actionChains = ActionChains(driver)
 
