@@ -15,7 +15,7 @@ def run():
         
     if st.button("PRL PO Placement", type="primary"):
         st.write("Trying to automate PRL PO placement")
-        prl_input_file = st.file_uploader("Choose the PRL Input file", type=[xlsx])
+        prl_input_file = st.file_uploader("Choose the PRL Input file", type=['xlsx'])
         # dataframe = pd.read_csv(uploaded_file)
         # st.write(dataframe)
         dataframe = pd.read_excel(uploaded_file)
