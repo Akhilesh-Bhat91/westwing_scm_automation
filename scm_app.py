@@ -1,5 +1,11 @@
 import streamlit as st
 import pandas as pd
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 # from PIL import Image
 st.set_page_config(page_title='The cool Westwing SCM automation app', page_icon='./images/westwing_logo.jpeg')
 
