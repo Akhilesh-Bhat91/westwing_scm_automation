@@ -4,7 +4,7 @@ import pandas as pd
 st.set_page_config(page_title='The cool Westwing SCM automation app', page_icon='./images/westwing_logo.jpeg')
 
 def file_upload():
-    prl_input_file = st.session_state["new_file"]
+    prl_input_file = st.session_state["prl_input_file"]
     dataframe = pd.read_excel(prl_input_file)
     st.write("filename:", prl_input_file.name)
     st.write(dataframe)
