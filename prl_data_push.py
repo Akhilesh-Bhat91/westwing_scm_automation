@@ -4,7 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.service import Service]
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.core.os_manager import ChromeType
 import pandas as pd
@@ -21,7 +22,10 @@ def po_placement(allPOData_df):
     password = 'QYE2gxd-kju0kz!'
     # Select webdriver (chrome, edge, etc.)
     # driver = webdriver.Chrome()
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))
+    options = Options()
+    # options.add_argument("--disable-gpu")
+    # options.add_argument("--headless")
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=options)
     
     # Open the Website and maximize window
     driver.get("https://mono.westwing.eu/")#put here the adress of your page
