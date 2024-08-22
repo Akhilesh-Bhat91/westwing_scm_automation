@@ -30,7 +30,7 @@ def po_placement(allPOData_df):
     # driver = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),options=options)
 
     firefoxOptions = Options()
-    # firefoxOptions.add_argument("--headless")
+    firefoxOptions.add_argument("--headless")
     service = Service(GeckoDriverManager().install())
     driver = webdriver.Firefox(options=firefoxOptions,service=service)
     
