@@ -19,7 +19,7 @@ def run():
         st.session_state.uploaded_file = st.file_uploader("Choose the PRL Input file", accept_multiple_files=False, key="prl_input_file", on_change=file_upload)
         # prl_input_file = st.file_uploader("Choose the PRL Input file", type=['xlsx'])
 
-     if st.button("Export PO bookings", type="primary"):
+    if st.button("Export PO bookings", type="primary"):
          tp.export_bookings()
 run()
 
