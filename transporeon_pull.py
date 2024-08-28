@@ -1,14 +1,14 @@
-# from selenium import webdriver
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.webdriver.common.action_chains import ActionChains
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 
-from seleniumbase import webdriver
-from seleniumbase.webdriver.common.by import By
-from seleniumbase.webdriver.support.ui import WebDriverWait
-from seleniumbase.webdriver.support import expected_conditions as EC
-from seleniumbase.webdriver.common.action_chains import ActionChains
+# from seleniumbase import webdriver
+# from seleniumbase.webdriver.common.by import By
+# from seleniumbase.webdriver.support.ui import WebDriverWait
+# from seleniumbase.webdriver.support import expected_conditions as EC
+# from seleniumbase.webdriver.common.action_chains import ActionChains
 
 import time
 from datetime import datetime
@@ -47,7 +47,9 @@ def export_bookings():
     
     #whenever driver.action doesn't work, use wait.until(EC.element_to_be_clickable/visible).action
     # Enter username & password, and then press sign-in
-    wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="emailForm_email-input"]'))).send_keys(username)
+    userElem = EC.element_to_be_clickable((By.XPATH, '//*[@id="emailForm_email-input"]'))
+    st.write(userElem)
+    wait.until(userElem).send_keys(username)
     wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="emailForm_password-input"]'))).send_keys(password)
     wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="emailForm_submit"]'))).click()
     
