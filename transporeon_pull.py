@@ -1,8 +1,15 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
+# from selenium.webdriver.common.action_chains import ActionChains
+
+from seleniumbase import webdriver
+from seleniumbase.webdriver.common.by import By
+from seleniumbase.webdriver.support.ui import WebDriverWait
+from seleniumbase.webdriver.support import expected_conditions as EC
+from seleniumbase.webdriver.common.action_chains import ActionChains
+
 import time
 from datetime import datetime
 from datetime import timedelta
@@ -46,6 +53,7 @@ def export_bookings():
     
     i = 0
     page_not_loaded =True
+    st.write('loading iframes')
     while page_not_loaded:          # the booking overview takes a while to load. Hence the while loop
         try:
             driver.switch_to.frame("iFrameRetailTSM")       #Lesson : the elements are within an iframe. so need to switch into it
@@ -65,6 +73,8 @@ def export_bookings():
         
     # driver.switch_to.frame("mclegacy")  #Switch into the the iframe within the iframe
     time.sleep(3)
+
+    st.write('updating warehouse/date filters')
     # Selecting the warehouses
     wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ext-gen98"]'))).click()  #Click on dropdown
     wait.until(EC.element_to_be_clickable((By.XPATH,'/html/body/div[7]/div/div[4]'))).click()   #Deselect the 4th option - ELC5 returns
