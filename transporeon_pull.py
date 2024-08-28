@@ -48,7 +48,7 @@ def export_bookings():
     #whenever driver.action doesn't work, use wait.until(EC.element_to_be_clickable/visible).action
     # Enter username & password, and then press sign-in
     userElem = EC.element_to_be_clickable((By.XPATH, '//*[@id="emailForm_email-input"]'))
-    st.write(userElem)
+    st.write(userElem.tag_name)
     wait.until(userElem).send_keys(username)
     wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="emailForm_password-input"]'))).send_keys(password)
     wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="emailForm_submit"]'))).click()
