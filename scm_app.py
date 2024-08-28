@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import prl_data_push as prl
+import transporeon_pull as tp 
 # from PIL import Image
 st.set_page_config(page_title='The cool Westwing SCM automation app', page_icon='./images/westwing_logo.jpeg')
 
@@ -17,6 +18,8 @@ def run():
     if st.button("PRL PO Placement", type="primary"):
         st.session_state.uploaded_file = st.file_uploader("Choose the PRL Input file", accept_multiple_files=False, key="prl_input_file", on_change=file_upload)
         # prl_input_file = st.file_uploader("Choose the PRL Input file", type=['xlsx'])
-        
+
+     if st.button("Export PO bookings", type="primary"):
+         tp.export_bookings()
 run()
 
