@@ -78,7 +78,8 @@ def export_bookings():
 
     st.write('updating warehouse/date filters')
     # Selecting the warehouses
-    wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ext-gen98"]'))).click()  #Click on dropdown
+    # wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ext-gen98"]'))).click()  #Click on dropdown
+    wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#ext-gen98'))).click()  #Click on dropdown
     wait.until(EC.element_to_be_clickable((By.XPATH,'/html/body/div[7]/div/div[4]'))).click()   #Deselect the 4th option - ELC5 returns
     
     # Selecting the warehouse gates
