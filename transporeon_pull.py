@@ -21,8 +21,7 @@ import streamlit as st
 #password = login_details.password
 
 def export_bookings():
-    username = 'akhilesh.bhat-external@westwing.de'
-    password = 'HSELihka2024!'
+    #put encrypted pass & user here
     url = "https://login.transporeon.com/?locale=en_US#RetailTSM/bookingoverview.html"
     
     # Set browser preferences
